@@ -10,7 +10,7 @@ namespace PixelFacebook.HttpClientService.ApiFacebookService
     {
         private readonly HttpClientService _httpClient;
         private readonly string pixelId = "387608306145949";
-        private readonly string accessToken = "EAAFXZAl0f0v8BAP6U4auKRnR6gZCmDEyyIcngIOtR22ZCo75SrTNOrGcH1MSITokXixtNrhAsKfAoihHE0F14eAprtLZAcOzoZBDxBIdCH3vByPSH2DAoR9ZA474q71B1v5TjJSyttmzd9yPcyRCTs7BOxy5iEgU7g0HbGXMCZBfoAQk5U6JcjdEsvih0ZBJBPQZD";
+        private readonly string accessToken = "EAAFXZAl0f0v8BAOSAzX4kdpuFdrHVGYtp5AAZCkhVPLgiWPQAQdKcBsZCht1bnCuTheaKKB4nyCXIuZChRDuDy1Yx5oj5nmwNqYSpljtbL8MSj3BBScE8ZCRCxSR5etNcVZBeCxWNiq1yFPx5EU0oEmGJnRrFNGLaaWSHLhque2SE3kKkwtlIdlEw1ZAg6yDrgZD";
         private readonly string urlApi = "https://graph.facebook.com/v11.0/";
 
         public ApiFacebookService()
@@ -36,7 +36,8 @@ namespace PixelFacebook.HttpClientService.ApiFacebookService
             try
             {
                 string data = GetDataJson(idCredito, monto, eventName);
-                string url = $"{urlApi + pixelId}/events?access_token={accessToken}&data={data}"; //&test_event_code=TEST21206";
+                string url = $"{urlApi + pixelId}/events?access_token={accessToken}&data={data}&test_event_code=TEST86491"; //&data={data}&test_event_code=TEST86491
+
                 return await _httpClient.PostAsync(url, "");
             }
             catch (Exception)
@@ -55,8 +56,9 @@ namespace PixelFacebook.HttpClientService.ApiFacebookService
                 var custom = new Custom_Data();
                 custom.idCredito = idCredito;
                 custom.monto = monto;
+                custom.currency = "usd";
                 data.action_source = "website";
-
+                data.event_source_url = "https://localhost:44304/Home/Paso8";
                 data.event_name = eventName.ToString();
                 data.event_id = eventName.ToString().Replace("_", "");
 
