@@ -10,7 +10,7 @@ namespace PixelFacebook.HttpClientService.ApiFacebookService
     {
         private readonly HttpClientService _httpClient;
         private readonly string pixelId = "387608306145949";
-        private readonly string accessToken = "EAAFXZAl0f0v8BAOSAzX4kdpuFdrHVGYtp5AAZCkhVPLgiWPQAQdKcBsZCht1bnCuTheaKKB4nyCXIuZChRDuDy1Yx5oj5nmwNqYSpljtbL8MSj3BBScE8ZCRCxSR5etNcVZBeCxWNiq1yFPx5EU0oEmGJnRrFNGLaaWSHLhque2SE3kKkwtlIdlEw1ZAg6yDrgZD";
+        private readonly string accessToken = "EAAFXZAl0f0v8BAMkACIZAC94fUghcYOKt8tDLrvJ0nyBRgti9jWgtNKQTG7e3Qni3MrMACa91PPr4We4Hp423hmSqxPV82I3cWq75mCb6FvAQyUxUPudvq9NOwiVUFiqujyScRgsTnSuvJLsiFyKVwVhgQ6kamF76aBoICdtcMsQHgSFMPZAe36v9YAvCsZD";
         private readonly string urlApi = "https://graph.facebook.com/v11.0/";
 
         public ApiFacebookService()
@@ -39,6 +39,7 @@ namespace PixelFacebook.HttpClientService.ApiFacebookService
                 string url = $"{urlApi + pixelId}/events?access_token={accessToken}&data={data}&test_event_code=TEST86491"; //&data={data}&test_event_code=TEST86491
 
                 return await _httpClient.PostAsync(url, "");
+
             }
             catch (Exception)
             {
